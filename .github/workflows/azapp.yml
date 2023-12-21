@@ -24,6 +24,7 @@ jobs:
               login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
               username: ${{ secrets.REGISTRY_USERNAME }}
               password: ${{ secrets.REGISTRY_PASSWORD }}
-          - run: |
-              docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/impressoapi:${{ github.sha }}
-              docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/impressoapi:${{ github.sha }}
+            run: |
+              docker login devimpressoapiacr.azurecr.io --username devimpressoapiacr --password dHcWJDooV7YqiY46bAdh+G6YUqtVls8mvCA9ngrIEh+ACRDGuUVR
+              docker build . -t devimpressoapiacr.azurecr.io/impressoapi:${{ github.sha }}
+              docker push devimpressoapiacr.azurecr.io/impressoapi:${{ github.sha }}
